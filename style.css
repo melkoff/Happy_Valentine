@@ -1,0 +1,73 @@
+body {
+   display: flex;
+   align-items: center;
+   flex-direction: column-reverse;
+   background: linear-gradient(90deg, #c26dd7, #da408f);
+   background-size: 400% 400%;
+   animation: bodygradient 2.5s infinite ease-in-out;
+}
+
+@keyframes bodygradient {
+   0% {
+      background-position: 0 50%;
+   }
+
+   50% {
+      background-position: 100% 50%;
+   }
+
+   100% {
+      background-position: 0 50%;
+   }
+}
+
+.heart {
+   position: relative;
+   width: 400px;
+   height: 360px;
+   margin: auto;
+   animation: 1.5s ease 0s infinite heart-beat;
+}
+
+@keyframes heart-beat {
+
+   0%,
+   50%,
+   100% {
+      transform: scale(1, 1);
+   }
+
+   30%,
+   80% {
+      transform: scale(0.92, 0.95);
+   }
+}
+
+.heart::before,
+.heart::after {
+   position: absolute;
+   content: "";
+   left: 50%;
+   top: 50%;
+   width: 200px;
+   height: 320px;
+   background-color: rgb(255, 0, 85);
+   border-radius: 100px 100px 0 0;
+   transform: rotate(-45deg);
+   transform-origin: 0 100%;
+}
+
+.heart::after {
+   left: 0;
+   transform: rotate(45deg);
+   transform-origin: 100% 100%;
+}
+
+h1 {
+   font-size: 78px;
+   background: linear-gradient(90deg, #7f2495, #c10b93);
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+   font-family: "Dancing Script";
+   font-weight: 900;
+}
