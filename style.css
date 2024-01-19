@@ -5,6 +5,7 @@ body {
    background: linear-gradient(90deg, #c26dd7, #da408f);
    background-size: 400% 400%;
    animation: bodygradient 2.5s infinite ease-in-out;
+   overflow: hidden;
 }
 
 @keyframes bodygradient {
@@ -28,6 +29,7 @@ body {
    margin: auto;
    animation: 1.5s ease 1s infinite heart-beat;
    cursor: pointer;
+   z-index: 2;
 }
 
 @keyframes heart-beat {
@@ -65,22 +67,8 @@ body {
    transform-origin: 100% 100%;
 }
 
-
-
-.heart-text {
-   font-size: 58px;
-   background: linear-gradient(90deg, #7f2495, #c10b93);
-   -webkit-background-clip: text;
-   -webkit-text-fill-color: transparent;
-   font-family: "Dancing Script";
-   font-weight: 900;
-   opacity: 0;
-   /* Hide text on start */
-}
-
 .heart-appear {
-   animation: heart-appear 2s forwards ease-in-out;
-   /* Give time animation, when text is hiding */
+   animation: heart-appear;
 }
 
 
@@ -104,6 +92,17 @@ body {
    }
 }
 
+.heart-text {
+   font-size: 58px;
+   background: linear-gradient(90deg, #7f2495, #c10b93);
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+   font-family: "Dancing Script";
+   font-weight: 900;
+   opacity: 0;
+   z-index: 2;
+}
+
 @keyframes text-appear {
    from {
       opacity: 0;
@@ -112,6 +111,7 @@ body {
    to {
       opacity: 1;
    }
+
 }
 
 @keyframes text-disappear {
@@ -131,7 +131,18 @@ h1 {
    -webkit-text-fill-color: transparent;
    font-family: "Dancing Script";
    font-weight: 900;
+   z-index: 2;
 }
+
+.imgHeart {
+   position: absolute;
+   width: 35px;
+   height: 35px;
+   z-index: 1;
+   opacity: 0;
+   transition: 0.3s;
+}
+
 
 @media screen and (max-width: 768px) {
    .heart {
@@ -165,6 +176,10 @@ h1 {
       transform: rotate(45deg);
       transform-origin: 100% 100%;
    }
+}
 
-
+@media screen and (max-width: 576px) {
+   h1 {
+      font-size: 40px;
+   }
 }
