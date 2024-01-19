@@ -24,9 +24,10 @@ body {
 .heart {
    position: relative;
    width: 400px;
-   height: 360px;
+   height: auto;
    margin: auto;
-   animation: 1.5s ease 0s infinite heart-beat;
+   animation: 1.5s ease 1s infinite heart-beat;
+   cursor: pointer;
 }
 
 @keyframes heart-beat {
@@ -42,6 +43,7 @@ body {
       transform: scale(0.92, 0.95);
    }
 }
+
 
 .heart::before,
 .heart::after {
@@ -63,6 +65,65 @@ body {
    transform-origin: 100% 100%;
 }
 
+
+
+.heart-text {
+   font-size: 58px;
+   background: linear-gradient(90deg, #7f2495, #c10b93);
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+   font-family: "Dancing Script";
+   font-weight: 900;
+   opacity: 0;
+   /* Hide text on start */
+}
+
+.heart-appear {
+   animation: heart-appear 2s forwards ease-in-out;
+   /* Give time animation, when text is hiding */
+}
+
+
+@keyframes heart-appear {
+   from {
+      opacity: 0;
+      transform: scale(0);
+   }
+
+   to {
+      opacity: 1;
+      transform: scale(1);
+   }
+}
+
+@keyframes heart-disappear {
+
+   to {
+      opacity: 0;
+      transform: scale(0);
+   }
+}
+
+@keyframes text-appear {
+   from {
+      opacity: 0;
+   }
+
+   to {
+      opacity: 1;
+   }
+}
+
+@keyframes text-disappear {
+   from {
+      opacity: 1;
+   }
+
+   to {
+      opacity: 0;
+   }
+}
+
 h1 {
    font-size: 78px;
    background: linear-gradient(90deg, #7f2495, #c10b93);
@@ -70,4 +131,40 @@ h1 {
    -webkit-text-fill-color: transparent;
    font-family: "Dancing Script";
    font-weight: 900;
+}
+
+@media screen and (max-width: 768px) {
+   .heart {
+      width: 295px;
+   }
+
+   h1 {
+      font-size: 50px;
+   }
+
+   .heart-text {
+      font-size: 38px;
+   }
+
+   .heart::before,
+   .heart::after {
+      position: absolute;
+      content: "";
+      left: 50%;
+      top: 50%;
+      width: 150px;
+      height: 230px;
+      background-color: rgb(255, 0, 85);
+      border-radius: 100px 100px 0 0;
+      transform: rotate(-45deg);
+      transform-origin: 0 100%;
+   }
+
+   .heart::after {
+      left: 0;
+      transform: rotate(45deg);
+      transform-origin: 100% 100%;
+   }
+
+
 }

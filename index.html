@@ -11,12 +11,41 @@
 </head>
 
 <body>
-   <div class="heart">
-
+   <div class="heart" onclick="animateHeart()"></div>
+   <div class="heart-text hidden">
+      I Love You My Dear
    </div>
    <h1>
       Happy Valentine's Day
    </h1>
-</body>
 
-</html>
+   <script>
+      function animateHeart() {
+         var heart = document.querySelector('.heart');
+         var heartText = document.querySelector('.heart-text');
+
+         heartText.style.opacity = '0';
+
+         heart.style.animation = 'heart-disappear 1.5s forwards';
+
+         setTimeout(function () {
+            heart.style.display = 'none';
+            heart.style.animation = '';
+
+            heartText.style.display = 'block';
+            heartText.style.animation = 'text-appear 1.5s forwards';
+
+            setTimeout(function () {
+               heartText.style.animation = 'text-disappear 1.5s forwards';
+
+               setTimeout(function () {
+                  heart.style.display = 'block';
+                  heart.style.animation = 'heart-appear 1.5s forwards';
+               }, 1500);
+
+            }, 1500);
+
+         }, 1500);
+      }
+   </script>
+</body>
