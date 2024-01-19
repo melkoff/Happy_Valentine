@@ -25,7 +25,7 @@
 
    <img class="imgHeart" style="left: 20%; top: 25%;" src="img/mini-heart.png" data-speed="6">
 
-   <img class="imgHeart mobile-none" style="left: 30%; top: 10%;" src="img/mini-heart.png" data-speed="2">
+   <img class="imgHeart" style="left: 30%; top: 10%;" src="img/mini-heart.png" data-speed="2">
 
    <img class="imgHeart" style="left: 40%; top: 25%;" src="img/mini-heart.png" data-speed="3">
 
@@ -33,7 +33,7 @@
 
    <img class="imgHeart" style="left: 60%; top: 25%;" src="img/mini-heart.png" data-speed="6">
 
-   <img class="imgHeart mobile-none" style="left: 70%; top: 10%;" src="img/mini-heart.png" data-speed="2">
+   <img class="imgHeart" style="left: 70%; top: 10%;" src="img/mini-heart.png" data-speed="2">
 
    <img class="imgHeart" style="left: 80%; top: 25%;" src="img/mini-heart.png" data-speed="3">
 
@@ -82,53 +82,7 @@
    <script src="https://code.jquery.com/jquery-2.2.4.min.js"
       integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
-   <script>
-      function animateHeart() {
-         var heart = document.querySelector('.heart');
-         var heartText = document.querySelector('.heart-text');
-         var imgHearts = document.querySelectorAll('.imgHeart');
-
-         heartText.style.opacity = '0';
-         heart.style.animation = 'heart-disappear 1.5s forwards';
-
-         setTimeout(function () {
-            heart.style.display = 'none';
-            heart.style.animation = '';
-
-            for (var i = 0; i < imgHearts.length; i++) {
-               imgHearts[i].style.opacity = '1';
-            }
-
-            heartText.style.display = 'block';
-            heartText.style.animation = 'text-appear 1.5s forwards';
-
-            setTimeout(function () {
-               heartText.style.animation = 'text-disappear 1.5s forwards';
-
-               setTimeout(function () {
-                  heart.style.display = 'block';
-                  heart.style.animation = 'heart-appear 1.5s forwards';
-               }, 1500);
-
-            }, 2500);
-
-         }, 1500);
-      }
-   </script>
-
-   <script type="text/javascript">
-      document.addEventListener("mousemove", parallax);
-      function parallax(e) {
-         this.querySelectorAll('.imgHeart').forEach(imgHeart => {
-            const speed = imgHeart.getAttribute('data-speed')
-
-            const x = (window.innerWidth - e.pageX * speed) / 100
-            const y = (window.innerHeight - e.pageY * speed) / 100
-
-            imgHeart.style.transform = `translateX(${x}px) translateY(${y}px)`
-         })
-      }
-   </script>
+   <script src="script.js"></script>
 </body>
 
 </html>
