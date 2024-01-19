@@ -77,3 +77,10 @@ document.addEventListener("DOMContentLoaded", function () {
    var heart = document.querySelector('.heart');
    heart.addEventListener('click', animateHeart);
 });
+
+// Script to play sound on click the 'heart'
+var sound = $("#sound")[0];
+$(".heart")
+   .click(function () {
+      sound.play();
+   });
