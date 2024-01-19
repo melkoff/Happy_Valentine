@@ -32,6 +32,19 @@ body {
    z-index: 2;
 }
 
+.heart p {
+   position: absolute;
+   left: 50%;
+   transform: translate(-50%, 100%);
+   z-index: 2;
+   margin-top: 70px;
+   background: linear-gradient(90deg, #492e52, #1f1e1f);
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+   font-family: "Dancing Script";
+   font-size: 24px;
+}
+
 @keyframes heart-beat {
 
    0%,
@@ -180,6 +193,11 @@ h1 {
 @media screen and (max-width: 576px) {
    h1 {
       font-size: 40px;
+   }
+
+   .heart p {
+      font-size: 18px;
+      margin-top: 40px;
    }
 
    .imgHeart {
