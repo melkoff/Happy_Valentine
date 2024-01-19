@@ -4,7 +4,7 @@ body {
    flex-direction: column-reverse;
    background: linear-gradient(90deg, #c26dd7, #da408f);
    background-size: 400% 400%;
-   animation: bodygradient 2.5s infinite ease-in-out;
+   animation: bodygradient 2.5s infinite ease-in-out-out;
    overflow: hidden;
 }
 
@@ -154,7 +154,58 @@ h1 {
    z-index: 1;
    opacity: 0;
    transition: 0.6s;
+   animation-name: imgHeart-appear;
 }
+
+@keyframes imgHeart-appear {
+   0% {
+      transform: translateY(10px) scale(1.2, 1.2);
+   }
+
+   25% {
+      transform: translateY(0px) scale(0.92, 0.95);
+   }
+
+   50% {
+      transform: translateY(10px) scale(1.2, 1.2);
+   }
+
+   75% {
+      transform: translateY(0px) scale(0.92, 0.95);
+   }
+
+   100% {
+      transform: translateY(10px) scale(1.2, 1.2);
+   }
+}
+
+.imgHeart:nth-child(odd) {
+   animation-name: imgHeart-Revertappear;
+}
+
+@keyframes imgHeart-Revertappear {
+   0% {
+      transform: translateY(0px);
+   }
+
+   25% {
+      transform: translateY(7px);
+   }
+
+   50% {
+      transform: translateY(0px);
+   }
+
+   75% {
+      transform: translateY(7px);
+   }
+
+   100% {
+      transform: translateY(0px);
+   }
+}
+
+/* Start Media Queries */
 
 @media screen and (max-width: 768px) {
    .heart {

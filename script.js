@@ -3,24 +3,6 @@ document.addEventListener("DOMContentLoaded", function () {
    // Select all elements with the class 'imgHeart'
    var imgHearts = document.querySelectorAll('.imgHeart');
 
-   // Function to move 'imgHeart' elements on mouse movement
-   function moveImgHearts(e) {
-      // Repeat through each 'imgHeart' element
-      imgHearts.forEach(imgHeart => {
-         const speed = imgHeart.getAttribute('data-speed');
-
-         const x = (window.innerWidth - e.pageX * speed) / 100;
-         const y = (window.innerHeight - e.pageY * speed) / 100;
-
-         imgHeart.style.transform = `translateX(${x}px) translateY(${y}px)`;
-      });
-   }
-
-   // Add an event listener for the 'mousemove' event to start the movement of 'imgHeart' elements
-   document.addEventListener("mousemove", moveImgHearts);
-   // Initialize the initial position of 'imgHeart' elements at the center of the window
-   moveImgHearts({ pageX: window.innerWidth / 2, pageY: window.innerHeight / 2 });
-
    // Function to animate heart and text on click the heart element
    function animateHeart() {
       // Select the heart and text elements
@@ -43,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
             setTimeout(function () {
                // Make the 'imgHeart' element visible with an appear animation
                imgHeart.style.opacity = '1';
-               imgHeart.style.animation = 'imgHeart-appear 1.5s forwards';
+               imgHeart.style.animation = 'imgHeart-appear 3.5s infinite';
             }, 1500 + index * 100);
          });
 
