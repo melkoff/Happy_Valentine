@@ -2,23 +2,57 @@ body {
    display: flex;
    align-items: center;
    flex-direction: column-reverse;
-   background: linear-gradient(90deg, #c26dd7, #da408f);
+   background: linear-gradient(180deg, #c26dd7, #da408f);
    background-size: 400% 400%;
-   animation: bodygradient 2.5s infinite ease-in-out-out;
+   animation: change-body-color 8s linear infinite alternate both;
    overflow: hidden;
 }
 
-@keyframes bodygradient {
+body ::selection {
+   background-color: #c26dd765;
+}
+
+@-webkit-keyframes change-body-color {
    0% {
-      background-position: 0 50%;
+      background: #c26dd7;
+   }
+
+   25% {
+      background: #d764dd;
    }
 
    50% {
-      background-position: 100% 50%;
+      background: #d73ae2;
+   }
+
+   75% {
+      background: #e93ddd;
    }
 
    100% {
-      background-position: 0 50%;
+      background: #c86dc8;
+   }
+}
+
+@keyframes change-body-color {
+   0% {
+      background: #c26dd7;
+   }
+
+   25% {
+      background: #d764dd;
+   }
+
+   50% {
+      background: #d73ae2;
+   }
+
+   75% {
+      background: #e93ddd;
+   }
+
+   100% {
+      background: #c86dc8;
    }
 }
 
@@ -68,7 +102,7 @@ body {
    top: 50%;
    width: 200px;
    height: 320px;
-   background-color: rgb(255, 0, 85);
+   background-color: rgb(232, 30, 97);
    border-radius: 100px 100px 0 0;
    transform: rotate(-45deg);
    transform-origin: 0 100%;
